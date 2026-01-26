@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ALETEOS – Démarrage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to right, #6ecbff, #003b8b);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #cceeff;
+      overflow: hidden;
+    }
+
+    .logo {
+      width: 260px;
+      height: auto;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 0.15em;
+      margin-bottom: 40px;
+    }
+
+    /* Loader moderne */
+    .orbit {
+      position: relative;
+      width: 70px;
+      height: 70px;
+    }
+
+    .orbit div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 50%;
+      transform-origin: -25px;
+      animation: orbit 1.2s linear infinite;
+    }
+
+    .orbit div:nth-child(2) { animation-delay: 0.2s; }
+    .orbit div:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(25px) rotate(0deg); }
+      to   { transform: rotate(360deg) translateX(25px) rotate(-360deg); }
+    }
+
+    .fade-out {
+      animation: fadeOut 1s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ton logo -->
+  <img src="images/logo.png" alt="ALETEOS" class="logo">
+
+  <!-- Texte -->
+  <div class="title">ALETEOS</div>
+
+  <!-- Loader moderne -->
+  <div class="orbit">
+    <div></div><div></div><div></div>
+  </div>
+
+  <script>
+    // Démarrage plus long : 7 secondes
+    setTimeout(() => {
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
+    }, 7000);
+  </script>
+
+</body>
+</html>
