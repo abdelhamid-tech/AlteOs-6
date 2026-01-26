@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>AlteOS – Connexion utilisateur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Google Sans', sans-serif;
+      background: url('wallpaper.html') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      right: 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .user-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: url('user.png') no-repeat center center;
+      background-size: cover;
+      margin-bottom: 20px;
+    }
+
+    .username {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .password {
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1.2rem;
+      text-align: center;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      width: 260px;
+    }
+
+    .error {
+      margin-top: 15px;
+      color: #ffdddd;
+      font-size: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div id="weather">☀ 20° Sunny</div>
+    <div id="datetime">Vendredi, Avril 23 – 12:14</div>
+  </div>
+
+  <div class="user-icon"></div>
+  <div class="username">Abdelhamid</div>
+  <input type="password" id="pwd" class="password" placeholder="Mot de passe" onkeydown="checkEnter(event)">
+  <div id="error" class="error">Mot de passe incorrect</div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', day: 'numeric', month: 'long' };
+      const date = now.toLocaleDateString('fr-FR', options);
+      const time = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('datetime').textContent = `${date} – ${time}`;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 60000);
+
+    function checkEnter(e) {
+      if (e.key === "Enter") {
+        checkPassword();
+      }
+    }
+
+    function checkPassword() {
+      const pwd = document.getElementById("pwd").value;
+      const error = document.getElementById("error");
+
+      if (pwd === "C5454aie") {
+        window.location.href = "loadingscreen.html";
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
