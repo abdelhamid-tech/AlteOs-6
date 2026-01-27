@@ -2,115 +2,581 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Desktop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>AlteOS – Desktop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background: url("image/wallpaper.jpg") center/cover no-repeat;
+      font-family: 'Google Sans', sans-serif;
+      background: url('image/wallpaper.jpg') center center no-repeat;
+      background-size: cover;
       height: 100vh;
       overflow: hidden;
-      font-family: 'Google Sans', sans-serif;
-      color: white;
+      color: #ffffff;
     }
 
-    .icon {
-      width: 80px;
-      text-align: center;
-      cursor: pointer;
+    /* Icônes bureau */
+    .desktop-icons {
       position: absolute;
+      top: 40px;
+      left: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .icon img {
+    .desktop-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      text-shadow: 0 0 6px rgba(0,0,0,0.7);
+    }
+
+    .desktop-icon img {
       width: 64px;
       height: 64px;
+      border-radius: 22px;
+      background: radial-gradient(circle at top left, rgba(0,255,255,0.4), rgba(255,0,255,0.3));
+      padding: 10px;
+      box-shadow:
+        0 0 14px rgba(0,255,255,0.6),
+        0 0 18px rgba(255,0,255,0.4);
     }
 
+    .desktop-icon span {
+      font-size: 0.85rem;
+    }
+
+    /* Fenêtres HoloFlow */
+    .window {
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 720px;
+      height: 380px;
+      border-radius: 26px;
+      background: radial-gradient(circle at top left, rgba(0,255,255,0.35), rgba(255,255,255,0.18));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.45);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.45),
+        0 0 30px rgba(0,255,255,0.35);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: default;
+    }
+
+    .window-header {
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.15));
+      cursor: move;
+    }
+
+    .window-title {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .window-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .window-btn {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .close { background: #ff5f57; }
+    .minimize { background: #febc2e; }
+    .maximize { background: #28c840; }
+
+    .window-content {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(200,230,255,0.8));
+      border-top: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .window-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 0 0 26px 26px;
+    }
+
+    /* Widgets */
+    .widgets {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .widget {
+      min-width: 230px;
+      border-radius: 20px;
+      padding: 12px 16px;
+      background: radial-gradient(circle at top, rgba(0,0,0,0.55), rgba(0,0,0,0.25));
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+      font-size: 0.9rem;
+    }
+
+    .widget-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+
+    .widget-main {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Taskbar / dock */
     .taskbar {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 55px;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(8px);
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%);
+      width: 60%;
+      min-width: 520px;
+      height: 70px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.7),
+        0 0 25px rgba(0,255,255,0.35);
       display: flex;
       align-items: center;
-      padding: 0 15px;
-      font-size: 16px;
+      justify-content: space-between;
+      padding: 0 18px;
+    }
+
+    .taskbar-left,
+    .taskbar-center,
+    .taskbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .start-btn {
-      width: 40px;
-      height: 40px;
-      background: white;
-      border-radius: 6px;
-      margin-right: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: radial-gradient(circle at top left, #00e5ff, #ff00ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 0 14px rgba(0,255,255,0.7);
+      cursor: pointer;
     }
 
-    .right-info {
-      margin-left: auto;
+    .dock-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .dock-icon img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .dock-icon:hover {
+      transform: translateY(-6px) scale(1.05);
+      background: rgba(255,255,255,0.18);
+    }
+
+    .taskbar-right .time {
+      font-size: 0.9rem;
       text-align: right;
       line-height: 1.2;
     }
 
-    .weather {
-      font-size: 15px;
+    .status-icons {
+      display: flex;
+      gap: 8px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      align-items: center;
     }
 
-    .clock {
-      font-size: 18px;
-      font-weight: 500;
+    .user-mini {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    /* Start menu */
+    .start-menu {
+      position: absolute;
+      left: 50%;
+      bottom: 100px;
+      transform: translateX(-50%);
+      width: 420px;
+      border-radius: 26px;
+      background: radial-gradient(circle at top, rgba(0,0,0,0.75), rgba(0,0,0,0.55));
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+      padding: 16px 18px;
+      display: none;
+      color: #ffffff;
+    }
+
+    .start-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .start-menu-apps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .start-menu-app {
+      width: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .start-menu-app img {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      padding: 6px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Icône Editora -->
-  <div class="icon" style="top: 20px; left: 20px;">
-    <img src="image/editora.png" alt="Editora">
-    <div>Editora</div>
-  </div>
+  <!-- Icônes bureau -->
+  <div class="desktop-icons" id="desktopIcons"></div>
 
-  <!-- Icône Corbeille -->
-  <div class="icon" style="top: 120px; left: 20px;">
-    <img src="image/trash.png" alt="Corbeille">
-    <div>Corbeille</div>
-  </div>
-
-  <!-- Barre des tâches -->
-  <div class="taskbar">
-    <div class="start-btn"></div>
-    <div class="right-info">
-      <div class="weather" id="weather">Chargement météo...</div>
-      <div class="clock" id="clock"></div>
+  <!-- Widgets -->
+  <div class="widgets">
+    <div class="widget">
+      <div class="widget-title">Météo</div>
+      <div class="widget-main" id="weatherWidget">20° ☀ Québec</div>
+      <div style="opacity:0.8;font-size:0.8rem;margin-top:4px;">Ensoleillé, léger vent</div>
+    </div>
+    <div class="widget">
+      <div class="widget-title">Aujourd’hui</div>
+      <div id="dateWidget" style="font-size:0.95rem;margin-top:4px;"></div>
     </div>
   </div>
 
-  <script>
-    // Date + heure
-    function updateClock() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      document.getElementById("clock").textContent =
-        now.toLocaleTimeString('fr-CA', { hour: '2-digit', minute: '2-digit' });
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
+  <!-- Taskbar / dock -->
+  <div class="taskbar">
+    <div class="taskbar-left">
+      <div class="start-btn" id="startBtn">A</div>
+    </div>
 
-    // Météo (Québec, via Open-Meteo)
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=46.8139&longitude=-71.2080&current_weather=true")
-      .then(res => res.json())
-      .then(data => {
-        const temp = Math.round(data.current_weather.temperature);
-        const wind = data.current_weather.windspeed;
-        document.getElementById("weather").textContent =
-          temp + "°C  •  Vent " + wind + " km/h";
-      })
-      .catch(() => {
-        document.getElementById("weather").textContent = "Météo indisponible";
+    <div class="taskbar-center" id="dock"></div>
+
+    <div class="taskbar-right">
+      <div class="time" id="timeTaskbar"></div>
+      <div class="status-icons">
+        <span>📶</span>
+        <span>🔋</span>
+        <div class="user-mini" id="userMini"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start menu -->
+  <div class="start-menu" id="startMenu">
+    <div class="start-menu-header">
+      <span>Applications AlteOS</span>
+      <span id="startUserName"></span>
+    </div>
+    <div class="start-menu-apps" id="startMenuApps"></div>
+  </div>
+
+  <script>
+    let appsData = [];
+    let userData = {};
+    let highestZ = 10;
+
+    async function loadData() {
+      const [appsRes, userRes] = await Promise.all([
+        fetch('data/apps.json'),
+        fetch('data/user.json')
+      ]);
+
+      appsData = (await appsRes.json()).apps;
+      userData = await userRes.json();
+
+      initDesktop();
+      initDock();
+      initUser();
+    }
+
+    function initDesktop() {
+      const container = document.getElementById('desktopIcons');
+      container.innerHTML = '';
+      appsData.filter(a => a.desktop).forEach(app => {
+        const div = document.createElement('div');
+        div.className = 'desktop-icon';
+        div.onclick = () => openAppWindow(app);
+
+        const img = document.createElement('img');
+        img.src = app.icon;
+        img.alt = app.name;
+
+        const label = document.createElement('span');
+        label.textContent = app.name;
+
+        div.appendChild(img);
+        div.appendChild(label);
+        container.appendChild(div);
       });
+    }
+
+    function initDock() {
+      const dock = document.getElementById('dock');
+      dock.innerHTML = '';
+      appsData.filter(a => a.dock).forEach(app => {
+        const div = document.createElement('div');
+        div.className = 'dock-icon';
+        div.onclick = () => openAppWindow(app);
+
+        const img = document.createElement('img');
+        img.src = app.icon;
+        img.alt = app.name;
+
+        div.appendChild(img);
+        dock.appendChild(div);
+      });
+
+      const startApps = document.getElementById('startMenuApps');
+      startApps.innerHTML = '';
+      appsData.forEach(app => {
+        const item = document.createElement('div');
+        item.className = 'start-menu-app';
+        item.onclick = () => {
+          openAppWindow(app);
+          toggleStartMenu(false);
+        };
+
+        const img = document.createElement('img');
+        img.src = app.icon;
+        img.alt = app.name;
+
+        const label = document.createElement('span');
+        label.textContent = app.name;
+
+        item.appendChild(img);
+        item.appendChild(label);
+        startApps.appendChild(item);
+      });
+    }
+
+    function initUser() {
+      const userMini = document.getElementById('userMini');
+      userMini.style.backgroundImage = `url('${userData.profileImage}')`;
+      document.getElementById('startUserName').textContent = userData.username;
+    }
+
+    function openAppWindow(app) {
+      const existing = document.querySelector(`.window[data-app-id="${app.id}"]`);
+      if (existing) {
+        focusWindow(existing);
+        return;
+      }
+
+      const win = document.createElement('div');
+      win.className = 'window';
+      win.dataset.appId = app.id;
+      win.style.top = (120 + Math.random() * 40) + 'px';
+      win.style.left = '50%';
+      win.style.transform = 'translateX(-50%)';
+      win.style.zIndex = ++highestZ;
+
+      const header = document.createElement('div');
+      header.className = 'window-header';
+
+      const title = document.createElement('div');
+      title.className = 'window-title';
+      title.textContent = app.name + ' – AlteOS';
+
+      const buttons = document.createElement('div');
+      buttons.className = 'window-buttons';
+
+      const btnClose = document.createElement('div');
+      btnClose.className = 'window-btn close';
+      btnClose.onclick = (e) => {
+        e.stopPropagation();
+        win.remove();
+      };
+
+      const btnMin = document.createElement('div');
+      btnMin.className = 'window-btn minimize';
+      btnMin.onclick = (e) => {
+        e.stopPropagation();
+        win.style.display = 'none';
+      };
+
+      const btnMax = document.createElement('div');
+      btnMax.className = 'window-btn maximize';
+      btnMax.onclick = (e) => {
+        e.stopPropagation();
+        if (!win.dataset.maximized) {
+          win.dataset.prevTop = win.style.top;
+          win.dataset.prevLeft = win.style.left;
+          win.dataset.prevTransform = win.style.transform;
+          win.style.top = '40px';
+          win.style.left = '50%';
+          win.style.transform = 'translateX(-50%)';
+          win.style.width = '80%';
+          win.style.height = '70%';
+          win.dataset.maximized = '1';
+        } else {
+          win.style.top = win.dataset.prevTop;
+          win.style.left = win.dataset.prevLeft;
+          win.style.transform = win.dataset.prevTransform;
+          win.style.width = '720px';
+          win.style.height = '380px';
+          delete win.dataset.maximized;
+        }
+      };
+
+      buttons.appendChild(btnMin);
+      buttons.appendChild(btnMax);
+      buttons.appendChild(btnClose);
+
+      header.appendChild(title);
+      header.appendChild(buttons);
+
+      const content = document.createElement('div');
+      content.className = 'window-content';
+
+      const iframe = document.createElement('iframe');
+      iframe.src = app.path;
+      content.appendChild(iframe);
+
+      win.appendChild(header);
+      win.appendChild(content);
+
+      document.body.appendChild(win);
+
+      makeWindowDraggable(win, header);
+      win.addEventListener('mousedown', () => focusWindow(win));
+    }
+
+    function focusWindow(win) {
+      highestZ++;
+      win.style.zIndex = highestZ;
+      win.style.display = 'flex';
+    }
+
+    function makeWindowDraggable(win, handle) {
+      let offsetX = 0, offsetY = 0, dragging = false;
+
+      handle.addEventListener('mousedown', (e) => {
+        dragging = true;
+        focusWindow(win);
+        offsetX = e.clientX - win.getBoundingClientRect().left;
+        offsetY = e.clientY - win.getBoundingClientRect().top;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+      });
+
+      function onMouseMove(e) {
+        if (!dragging) return;
+        win.style.left = e.clientX - offsetX + 'px';
+        win.style.top = e.clientY - offsetY + 'px';
+        win.style.transform = 'none';
+      }
+
+      function onMouseUp() {
+        dragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    }
+
+    function updateTimeAndDate() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+      const date = now.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+      document.getElementById('timeTaskbar').textContent = time;
+      document.getElementById('dateWidget').textContent = date.charAt(0).toUpperCase() + date.slice(1);
+    }
+
+    function toggleStartMenu(force) {
+      const menu = document.getElementById('startMenu');
+      if (typeof force === 'boolean') {
+        menu.style.display = force ? 'block' : 'none';
+      } else {
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+      }
+    }
+
+    document.getElementById('startBtn').addEventListener('click', () => {
+      toggleStartMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('startMenu');
+      const btn = document.getElementById('startBtn');
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        toggleStartMenu(false);
+      }
+    });
+
+    updateTimeAndDate();
+    setInterval(updateTimeAndDate, 60000);
+
+    loadData();
   </script>
 
 </body>
