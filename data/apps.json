@@ -1,0 +1,28 @@
+{
+  "apps": [
+    {
+      "id": "files",
+      "name": "Fichiers",
+      "icon": "image/files.png",
+      "path": "apps/files.html",
+      "desktop": true,
+      "dock": true
+    },
+    {
+      "id": "browser",
+      "name": "Navigateur",
+      "icon": "image/browser.png",
+      "path": "apps/browser.html",
+      "desktop": true,
+      "dock": true
+    },
+    {
+      "id": "settings",
+      "name": "Paramètres",
+      "icon": "image/settings.png",
+      "path": "apps/settings.html",
+      "desktop": true,
+      "dock": true
+    }
+  ]
+}
