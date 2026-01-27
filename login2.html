@@ -76,7 +76,7 @@
 <body>
 
   <div class="top-bar">
-    <div id="weather">☀ 20° Sunny</div>
+    <div id="weather">Chargement...</div>
     <div id="datetime"></div>
   </div>
 
@@ -113,6 +113,47 @@
         error.style.display = "block";
       }
     }
+
+    // --- MÉTÉO ALTEOS (Open-Meteo, aucune clé API) ---
+    async function updateWeather() {
+      const weatherEl = document.getElementById("weather");
+
+      try {
+        const lat = 46.8139;  // Québec
+        const lon = -71.2080;
+
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const temp = Math.round(data.current_weather.temperature);
+        const code = data.current_weather.weathercode;
+
+        const icons = {
+          0: "☀",
+          1: "🌤",
+          2: "⛅",
+          3: "☁",
+          45: "🌫",
+          48: "🌫",
+          51: "🌦",
+          61: "🌧",
+          71: "🌨",
+          80: "🌦",
+          95: "⛈"
+        };
+
+        const icon = icons[code] || "☁";
+
+        weatherEl.textContent = `${icon} ${temp}°C`;
+      } catch (err) {
+        weatherEl.textContent = "Météo indisponible";
+      }
+    }
+
+    updateWeather();
+    setInterval(updateWeather, 600000);
   </script>
 
 </body>
