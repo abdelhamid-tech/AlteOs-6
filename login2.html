@@ -1,118 +1,72 @@
-@@ -0,0 +1,117 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>AlteOS – Connexion utilisateur</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+# 📝 **Avis officiel – Fin de service d’AlteOs 6**
 
-  <!-- Google Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+Le présent document constitue l’avis officiel annonçant la fin de service d’**AlteOs 6**. Cette mesure s’inscrit dans une démarche de **modernisation**, de **renforcement de la sécurité** et d’**amélioration de la performance** des environnements informatiques utilisant la plateforme AlteOs.
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Google Sans', sans-serif;
-      background: url('wallpaper.html') no-repeat center center;
-      background-size: cover;
-      height: 100vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
+---
 
-    .top-bar {
-      position: absolute;
-      top: 20px;
-      left: 40px;
-      right: 40px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+## 📅 **1. Contexte général**
 
-    .user-icon {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: url('user.png') no-repeat center center;
-      background-size: cover;
-      margin-bottom: 20px;
-    }
+À la suite d’une évaluation complète de la stabilité, de la sécurité et de la compatibilité d’AlteOs 6, il a été déterminé que cette version **ne répond plus aux exigences technologiques actuelles**.
 
-    .username {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
+Les infrastructures essentielles à son fonctionnement — notamment les **services d’activation**, de **validation** et de **mise à jour** — ont été retirées de manière définitive.
 
-    .password {
-      padding: 12px 20px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      font-size: 1.2rem;
-      text-align: center;
-      background: rgba(255,255,255,0.15);
-      color: white;
-      width: 260px;
-    }
+Cette décision vise à assurer la **protection des utilisateurs** et à garantir la **conformité aux normes modernes** en matière de cybersécurité.
 
-    .error {
-      margin-top: 15px;
-      color: #ffdddd;
-      font-size: 1rem;
-      display: none;
-    }
-  </style>
-</head>
-<body>
+---
 
-  <div class="top-bar">
-    <div id="weather">☀ 20° Sunny</div>
-    <div id="datetime">Vendredi, Avril 23 – 12:14</div>
-  </div>
+## 🛑 **2. Fin de service et impacts**
 
-  <div class="user-icon"></div>
-  <div class="username">Abdelhamid</div>
-  <input type="password" id="pwd" class="password" placeholder="Mot de passe" onkeydown="checkEnter(event)">
-  <div id="error" class="error">Mot de passe incorrect</div>
+À compter de la date officielle de fin de service :
 
-  <script>
-    function updateDateTime() {
-      const now = new Date();
-      const options = { weekday: 'long', day: 'numeric', month: 'long' };
-      const date = now.toLocaleDateString('fr-FR', options);
-      const time = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-      document.getElementById('datetime').textContent = `${date} – ${time}`;
-    }
+- **AlteOs 6 est désactivé**
+- **Le système ne peut plus être démarré, installé ou réutilisé**
+- **Aucune mise à jour de sécurité n’est fournie**
+- **Aucun soutien technique n’est disponible**
+- **Les applications modernes ne sont plus compatibles**
 
-    updateDateTime();
-    setInterval(updateDateTime, 60000);
+L’utilisation d’AlteOs 6 n’est plus autorisée dans un contexte opérationnel ou institutionnel.
 
-    function checkEnter(e) {
-      if (e.key === "Enter") {
-        checkPassword();
-      }
-    }
+---
 
-    function checkPassword() {
-      const pwd = document.getElementById("pwd").value;
-      const error = document.getElementById("error");
+## 🔒 **3. Raisons de la désactivation**
 
-      if (pwd === "C5454aie") {
-        window.location.href = "loadingscreen.html";
-      } else {
-        error.style.display = "block";
-      }
-    }
-  </script>
+Plusieurs facteurs ont motivé la fin de service :
 
-</body>
-</html>
+### • **Sécurité insuffisante**
+Les mécanismes de protection d’AlteOs 6 ne répondent plus aux standards actuels.
+
+### • **Incompatibilité technologique**
+Les nouvelles applications, pilotes et services cloud ne prennent plus en charge cette version.
+
+### • **Infrastructure obsolète**
+Les serveurs d’activation et de mise à jour associés à AlteOs 6 ont été retirés.
+
+### • **Modernisation de la plateforme**
+Les efforts de développement sont désormais concentrés sur les versions plus récentes afin d’assurer une continuité technologique durable.
+
+---
+
+## 🚀 **4. Transition recommandée vers AlteOs 7**
+
+Afin d’assurer la **sécurité**, la **stabilité** et la **performance** des environnements informatiques, il est recommandé de procéder à une migration vers **AlteOs 7**, la version actuellement prise en charge.
+
+AlteOs 7 offre notamment :
+
+- **une architecture modernisée**
+- **des mécanismes de sécurité renforcés**
+- **une compatibilité étendue**
+- **une performance améliorée**
+- **un soutien technique complet**
+
+Cette transition permet de maintenir un environnement conforme aux normes actuelles.
+
+---
+
+## 📘 **5. Objet de cette page**
+
+La page fournie dans ce projet a pour objectif :
+
+- d’informer officiellement les utilisateurs de la fin de service d’**AlteOs 6**
+- de préciser les impacts opérationnels de cette décision
+- de guider les utilisateurs vers les versions prises en charge, notamment **AlteOs 7**
+- d’assurer une transition claire et sécurisée vers les environnements modernes
