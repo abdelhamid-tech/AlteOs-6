@@ -13,7 +13,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Google Sans', sans-serif;
-      background: url('image/wallpaper.jpg') no-repeat center center;
+      background: url('wallpaper.jpg') no-repeat center center;
       background-size: cover;
       height: 100vh;
       color: white;
@@ -107,7 +107,7 @@
       const pwd = document.getElementById("pwd").value;
       const error = document.getElementById("error");
 
-      if (pwd === "C5454aie") {
+      if (pwd === "alteos6") {
         window.location.href = "loadingscreen.html";
       } else {
         error.style.display = "block";
@@ -115,39 +115,6 @@
     }
 
     // --- MÉTÉO ALTEOS (Open-Meteo, aucune clé API) ---
-    async function updateWeather() {
-      const weatherEl = document.getElementById("weather");
-
-      try {
-        const lat = 46.8139;  // Québec
-        const lon = -71.2080;
-
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
-
-        const response = await fetch(url);
-        const data = await response.json();
-
-        const temp = Math.round(data.current_weather.temperature);
-        const code = data.current_weather.weathercode;
-
-        const icons = {
-          0: "☀",
-          1: "🌤",
-          2: "⛅",
-          3: "☁",
-          45: "🌫",
-          48: "🌫",
-          51: "🌦",
-          61: "🌧",
-          71: "🌨",
-          80: "🌦",
-          95: "⛈"
-        };
-
-        const icon = icons[code] || "☁";
-
-        weatherEl.textContent = `${icon} ${temp}°C`;
-      } catch (err) {
         weatherEl.textContent = "Météo indisponible";
       }
     }
