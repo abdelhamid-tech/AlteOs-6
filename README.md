@@ -1,58 +1,72 @@
-📝 README – Avis officiel concernant la fin de service d’AlteOs 6
-Le présent document vise à informer les utilisateurs qu’AlteOs 6 a atteint la fin officielle de son cycle de vie. Cette décision s’inscrit dans une démarche de modernisation, d’amélioration de la sécurité et d’harmonisation des systèmes utilisés au sein de l’écosystème AlteOs.
+# 📝 **Avis officiel – Fin de service d’AlteOs 6**
 
-📅 Contexte et décision
-Après plusieurs années de service, AlteOs 6 ne répond plus aux exigences techniques, opérationnelles et sécuritaires actuelles. Les mécanismes de protection, les composants internes et les infrastructures associées ne permettent plus d’assurer un fonctionnement fiable ou conforme aux normes modernes.
+Le présent document constitue l’avis officiel annonçant la fin de service d’**AlteOs 6**. Cette mesure s’inscrit dans une démarche de **modernisation**, de **renforcement de la sécurité** et d’**amélioration de la performance** des environnements informatiques utilisant la plateforme AlteOs.
 
-À la suite d’une évaluation complète, il a été déterminé que :
+---
 
-les mises à jour de sécurité ne peuvent plus être maintenues
+## 📅 **1. Contexte général**
 
-les services d’activation et de validation doivent être retirés
+À la suite d’une évaluation complète de la stabilité, de la sécurité et de la compatibilité d’AlteOs 6, il a été déterminé que cette version **ne répond plus aux exigences technologiques actuelles**.
 
-la compatibilité avec les technologies récentes n’est plus assurée
+Les infrastructures essentielles à son fonctionnement — notamment les **services d’activation**, de **validation** et de **mise à jour** — ont été retirées de manière définitive.
 
-la continuité opérationnelle ne peut plus être garantie
+Cette décision vise à assurer la **protection des utilisateurs** et à garantir la **conformité aux normes modernes** en matière de cybersécurité.
 
-En conséquence, AlteOs 6 est désormais désactivé et ne peut plus être utilisé.
+---
 
-🔒 Impacts pour les utilisateurs
-À compter de la date de fin de service :
+## 🛑 **2. Fin de service et impacts**
 
-AlteOs 6 ne peut plus être démarré ni réinstallé
+À compter de la date officielle de fin de service :
 
-aucun correctif, mise à jour ou soutien technique n’est offert
+- **AlteOs 6 est désactivé**
+- **Le système ne peut plus être démarré, installé ou réutilisé**
+- **Aucune mise à jour de sécurité n’est fournie**
+- **Aucun soutien technique n’est disponible**
+- **Les applications modernes ne sont plus compatibles**
 
-les applications modernes ne sont plus compatibles
+L’utilisation d’AlteOs 6 n’est plus autorisée dans un contexte opérationnel ou institutionnel.
 
-l’utilisation du système n’est plus autorisée dans un contexte opérationnel
+---
 
-Les utilisateurs doivent procéder à une transition vers une version plus récente.
+## 🔒 **3. Raisons de la désactivation**
 
-🚀 Transition vers AlteOs 7
-Afin d’assurer la sécurité, la performance et la stabilité des environnements informatiques, il est recommandé de migrer vers AlteOs 7, la version la plus récente et la plus complète de la plateforme.
+Plusieurs facteurs ont motivé la fin de service :
 
-AlteOs 7 offre notamment :
+### • **Sécurité insuffisante**
+Les mécanismes de protection d’AlteOs 6 ne répondent plus aux standards actuels.
 
-une architecture modernisée
+### • **Incompatibilité technologique**
+Les nouvelles applications, pilotes et services cloud ne prennent plus en charge cette version.
 
-des mécanismes de sécurité renforcés
+### • **Infrastructure obsolète**
+Les serveurs d’activation et de mise à jour associés à AlteOs 6 ont été retirés.
 
-une compatibilité étendue avec les technologies actuelles
+### • **Modernisation de la plateforme**
+Les efforts de développement sont désormais concentrés sur les versions plus récentes afin d’assurer une continuité technologique durable.
 
-une performance accrue et une meilleure efficacité énergétique
+---
 
-un soutien technique complet
+## 🚀 **4. Transition recommandée vers AlteOs 7**
 
-Cette transition vise à garantir une expérience utilisateur améliorée et conforme aux standards actuels.
+Afin d’assurer la **sécurité**, la **stabilité** et la **performance** des environnements informatiques, il est recommandé de procéder à une migration vers **AlteOs 7**, la version actuellement prise en charge.
 
-📘 Objet de cette page
+AlteOs 7 offre notamment :
+
+- **une architecture modernisée**
+- **des mécanismes de sécurité renforcés**
+- **une compatibilité étendue**
+- **une performance améliorée**
+- **un soutien technique complet**
+
+Cette transition permet de maintenir un environnement conforme aux normes actuelles.
+
+---
+
+## 📘 **5. Objet de cette page**
+
 La page fournie dans ce projet a pour objectif :
 
-d’informer clairement les utilisateurs de la fin de service d’AlteOs 6
-
-de préciser les impacts opérationnels de cette décision
-
-de guider les utilisateurs vers les versions prises en charge, notamment AlteOs 7
-
-Elle constitue l’avis officiel destiné aux utilisateurs concernés.
+- d’informer officiellement les utilisateurs de la fin de service d’**AlteOs 6**
+- de préciser les impacts opérationnels de cette décision
+- de guider les utilisateurs vers les versions prises en charge, notamment **AlteOs 7**
+- d’assurer une transition claire et sécurisée vers les environnements modernes
