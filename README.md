@@ -29,10 +29,10 @@ l’utilisation du système n’est plus autorisée dans un contexte opérationn
 
 Les utilisateurs doivent procéder à une transition vers une version plus récente.
 
-🚀 Transition vers AlteOs 8
-Afin d’assurer la sécurité, la performance et la stabilité des environnements informatiques, il est recommandé de migrer vers AlteOs 8, la version la plus récente et la plus complète de la plateforme.
+🚀 Transition vers AlteOs 7
+Afin d’assurer la sécurité, la performance et la stabilité des environnements informatiques, il est recommandé de migrer vers AlteOs 7, la version la plus récente et la plus complète de la plateforme.
 
-AlteOs 8 offre notamment :
+AlteOs 7 offre notamment :
 
 une architecture modernisée
 
@@ -53,6 +53,6 @@ d’informer clairement les utilisateurs de la fin de service d’AlteOs 6
 
 de préciser les impacts opérationnels de cette décision
 
-de guider les utilisateurs vers les versions prises en charge, notamment AlteOs 8
+de guider les utilisateurs vers les versions prises en charge, notamment AlteOs 7
 
 Elle constitue l’avis officiel destiné aux utilisateurs concernés.
