@@ -70,3 +70,27 @@ La page fournie dans ce projet a pour objectif :
 - de préciser les impacts opérationnels de cette décision
 - de guider les utilisateurs vers les versions prises en charge, notamment **AlteOs 7**
 - d’assurer une transition claire et sécurisée vers les environnements modernes
+
+
+## © Droits d’auteur et avis légal
+© 2019–2026 AlteOs Corporation. Tous droits réservés.
+
+Le contenu de ce projet, incluant sans s’y limiter :
+
+les éléments graphiques,
+
+les logos,
+
+les illustrations,
+
+les textes,
+
+les fichiers HTML, CSS et JavaScript,
+
+ainsi que toute documentation associée,
+
+est protégé par des lois internationales relatives au droit d’auteur et à la propriété intellectuelle.
+
+Toute reproduction, distribution, modification ou utilisation non autorisée du matériel contenu dans ce dépôt est strictement interdite, sauf autorisation écrite préalable du détenteur des droits.
+
+L’utilisation des marques AlteOs, AlteEngine, AlteUI et de leurs représentations visuelles est réservée exclusivement aux produits et services officiels de la plateforme AlteOs.
