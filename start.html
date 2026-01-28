@@ -15,7 +15,8 @@
 
     body {
       height: 100vh;
-      background: linear-gradient(to right, #6ecbff, #003b8b);
+      background: url("wallpaper.jpg") no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -36,9 +37,9 @@
       font-weight: bold;
       letter-spacing: 0.15em;
       margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
-    /* Loader moderne */
     .orbit {
       position: relative;
       width: 70px;
@@ -79,19 +80,15 @@
 </head>
 <body>
 
-  <!-- Ton logo -->
   <img src="alteos-logo.png" alt="AlteOS" class="logo">
 
-  <!-- Texte -->
   <div class="title">AlteOS</div>
 
-  <!-- Loader moderne -->
   <div class="orbit">
     <div></div><div></div><div></div>
   </div>
 
   <script>
-    // Démarrage long : 7 secondes
     setTimeout(() => {
       document.body.classList.add("fade-out");
       setTimeout(() => {
