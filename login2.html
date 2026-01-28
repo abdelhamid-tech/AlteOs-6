@@ -1,3 +1,4 @@
+@@ -0,0 +1,117 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,7 +14,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Google Sans', sans-serif;
-      background: url('wallpaper.jpg') no-repeat center center;
+      background: url('wallpaper.html') no-repeat center center;
       background-size: cover;
       height: 100vh;
       color: white;
@@ -37,13 +38,12 @@
     }
 
     .user-icon {
-      width: 110px;
-      height: 110px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       background: url('user.png') no-repeat center center;
       background-size: cover;
       margin-bottom: 20px;
-      border: 3px solid rgba(255,255,255,0.4);
     }
 
     .username {
@@ -62,7 +62,6 @@
       background: rgba(255,255,255,0.15);
       color: white;
       width: 260px;
-      backdrop-filter: blur(4px);
     }
 
     .error {
@@ -76,8 +75,8 @@
 <body>
 
   <div class="top-bar">
-    <div id="weather">Météo indisponible</div>
-    <div id="datetime"></div>
+    <div id="weather">☀ 20° Sunny</div>
+    <div id="datetime">Vendredi, Avril 23 – 12:14</div>
   </div>
 
   <div class="user-icon"></div>
@@ -107,20 +106,12 @@
       const pwd = document.getElementById("pwd").value;
       const error = document.getElementById("error");
 
-      if (pwd === "alteos6") {
+      if (pwd === "C5454aie") {
         window.location.href = "loadingscreen.html";
       } else {
         error.style.display = "block";
       }
     }
-
-    // --- MÉTÉO ALTEOS (Open-Meteo, aucune clé API) ---
-        weatherEl.textContent = "Météo indisponible";
-      }
-    }
-
-    updateWeather();
-    setInterval(updateWeather, 600000);
   </script>
 
 </body>
