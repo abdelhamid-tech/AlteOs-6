@@ -1,1 +1,320 @@
-OUT OF SERVICE
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Fin de service – AlteOs 6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Sans (fallback Roboto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg: #020617;
+            --card: #020617;
+            --accent: #38bdf8;
+            --accent-soft: rgba(56, 189, 248, 0.12);
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --danger: #f97373;
+            --border: rgba(148, 163, 184, 0.35);
+        }
+
+        body {
+            margin: 0;
+            padding: 24px;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+            color: var(--text-main);
+            font-family: "Google Sans", Roboto, system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page {
+            max-width: 960px;
+            width: 100%;
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.9), #020617);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: 26px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.18), transparent 55%),
+                radial-gradient(circle at 100% 0%, rgba(129, 140, 248, 0.16), transparent 55%);
+            opacity: 0.7;
+            mix-blend-mode: screen;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-block img {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .logo-text-main {
+            font-size: 22px;
+            font-weight: 600;
+            display: flex;
+            gap: 6px;
+        }
+
+        .logo-text-main span.version {
+            color: var(--accent);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(248, 113, 113, 0.6);
+            color: var(--danger);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--danger);
+            box-shadow: 0 0 12px rgba(248, 113, 113, 0.9);
+        }
+
+        .lang-select {
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .lang-select select {
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+
+        .hero-text h1 {
+            font-size: 24px;
+            font-weight: 650;
+            margin-bottom: 8px;
+        }
+
+        .hero-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .hero-illustration img {
+            max-width: 240px;
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .card {
+            margin-top: 10px;
+            padding: 14px;
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid var(--border);
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .card-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .column-block {
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(51, 65, 85, 0.9);
+        }
+
+        .column-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .column-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 22px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(30, 64, 175, 0.7);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .copyright {
+            font-size: 10px;
+            color: var(--text-muted);
+            opacity: 0.8;
+            text-align: center;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="content">
+
+        <header class="header">
+            <div class="logo-block">
+                <img src="alteos-logo.png" alt="Logo AlteOs" />
+                <div>
+                    <div class="logo-text-main">
+                        <span>AlteOs</span>
+                        <span class="version">6</span>
+                    </div>
+                    <div class="logo-text-sub" data-i18n="subtitle">Annonce officielle de fin de service</div>
+                </div>
+            </div>
+
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span data-i18n="badge">Fin définitive</span>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="hero-text">
+                <h1 data-i18n="title">AlteOs 6 est définitivement retiré du service</h1>
+                <p data-i18n="desc">
+                    AlteOs 6 atteint aujourd’hui la fin complète de son cycle de vie. Cette version est désormais
+                    désactivée et inutilisable. Toutes les infrastructures associées — activation, mises à jour,
+                    services connectés, synchronisation — ont été arrêtées de manière permanente.
+                </p>
+            </div>
+            <div class="hero-illustration">
+                 alt="Fin de vie AlteOs 6" />
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title" data-i18n="card-title">AlteOs 6 n’est plus utilisable</div>
+            <p class="card-text" data-i18n="card-text">
+                Toute tentative de démarrage, d’installation ou d’utilisation d’AlteOs 6 échouera automatiquement.
+                Les serveurs d’activation et de validation ont été définitivement désactivés.
+            </p>
+            <div class="highlight">
+                <img src="warning-icon.png" alt="Avertissement" />
+                <span data-i18n="warning">AlteOs 6 ne peut plus être lancé ni réinstallé.</span>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column-block">
+                <div class="column-title" data-i18n="why-title">Pourquoi cette désactivation ?</div>
+                <p class="column-text" data-i18n="why-text">
+                    • Sécurité obsolète.<br>
+                    • Incompatibilité avec les navigateurs actuels.<br>
+                    • Arrêt des serveurs.<br>
+                    • Un temps de charement très long .<br>
+                </p>
+            </div>
+
+            <div class="column-block">
+                <div class="column-title" data-i18n="impact-title">Impact pour les utilisateurs</div>
+                <p class="column-text" data-i18n="impact-text">
+                    • AlteOs 6 ne démarre plus.<br>
+                    • Aucun support disponible.<br>
+                    • Migration obligatoire.<br>
+                </p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-text" data-i18n="footer">
+                AlteOs 6 – Fin définitive du service. Migration requise vers une version plus récente.
+            </div>
+
+            <div class="copyright" data-i18n="copyright">
+                © 2019–2026 AlteOs Corporation. Tous droits réservés.
+            </div>
+        </footer>
+
+    </div>
+</div>
